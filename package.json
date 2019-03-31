@@ -1,0 +1,43 @@
+{
+  "name": "insight-ui-mynt",
+  "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the myntcoin network and build your own services with it.",
+  "version": "1.0.3",
+  "repository": "git://github.com/silence48/insight-ui-mynt.git",
+  "contributors": [
+    {
+      "name": "Silence48",
+      "email": ""
+    }
+  ],
+  "scripts": {
+    "build": "bower install && grunt compile"
+  },
+  "bugs": {
+    "url": "https://github.com/silence48/insight-ui-mynt/issues"
+  },
+  "homepage": "https://github.com/silence48/insight-ui-mynt",
+  "license": "MIT",
+  "keywords": [
+    "insight",
+    "blockchain",
+    "blockexplorer",
+    "myntcoin",
+    "myntcore",
+    "front-end"
+  ],
+  "myntcoreNode": "myntcore-node",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "1.8.2",
+    "grunt": "0.4.2",
+    "grunt-cli": "0.1.11",
+    "grunt-contrib-jshint": "0.8.0",
+    "grunt-contrib-concat": "0.3.0",
+    "grunt-contrib-uglify": "0.3.2",
+    "grunt-contrib-watch": "*",
+    "grunt-macreload": "*",
+    "grunt-css": "0.5.4",
+    "grunt-markdown": "0.5.0",
+    "grunt-angular-gettext": "0.2.15"
+  }
+}

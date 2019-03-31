@@ -1,0 +1,15 @@
+<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+  <span ng-if="currency.symbol == 'USD'">USD</span>
+  <span ng-if="currency.symbol == 'MYNT'">{{currency.realSymbol}}</span>
+  <span ng-if="currency.symbol == 'mMYNT'">m{{currency.realSymbol}}</span>
+  <span ng-if="currency.symbol == 'bits'">bits</span>
+  <span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+  <li>
+  <a data-ng-click="setCurrency('USD')" data-ng-class="{active: currency.symbol == 'USD'}">USD</a>
+  </li>
+  <li>
+  <a data-ng-click="setCurrency('MYNT')" data-ng-class="{active: currency.symbol == 'MYNT'}">{{currency.realSymbol}}</a>
+  </li>
+</ul>

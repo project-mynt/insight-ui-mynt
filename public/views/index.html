@@ -1,0 +1,81 @@
+<div class="alert alert-danger" data-ng-show="flashMessage">
+  {{$root.flashMessage}}
+</div>
+<div data-ng-include src="'views/includes/connection.html'"></div>
+<section data-ng-controller="IndexController" data-ng-init="index()">
+  <div class="container">
+    <div id="home" class="row">
+      <div class="col-xs-12 col-md-8 col-gray">
+
+        <div id="search-form-mobile" class="visible-xs" data-ng-include src="'views/includes/search.html'"></div>
+
+        <h1 translate>Latest Blocks</h1>
+        <table class="table table-hover table-striped" style="table-layout: fixed">
+          <thead>
+            <tr>
+              <th translate>Height</th>
+              <th translate>Age</th>
+              <th class="text-right"><span class="ellipsis" translate>Transactions</span></th>
+              <th class="text-right hidden-xs"><span class="ellipsis" translate>Mined by</span></th>
+              <th class="text-right" translate>Size</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr data-ng-show="!blocks.length"><td colspan="4" translate>Waiting for blocks...</td></tr>
+          <tr class="fader" data-ng-repeat='b in blocks'>
+            <td>
+              <a href="block/{{b.hash}}">{{b.height}}</a>
+            </td>
+            <td><span class="ellipsis">{{humanSince(b.time)}}</span></td>
+            <td class="text-right">{{b.txlength}}</td>
+            <td class="text-right hidden-xs"><a href="{{b.poolInfo.url}}" title="{{b.poolInfo.poolName}}" target="_blank" data-ng-show="b.poolInfo">{{b.poolInfo.poolName}}</a></td>
+            <td class="text-right">{{b.size}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="btn-more">
+          <a href="blocks" class="btn btn-default" translate>See all blocks</a>
+        </div>
+
+        <h2 translate>Latest Transactions</h2>
+
+        <table class="table table-hover table-striped" style="table-layout: fixed;">
+          <thead>
+            <tr>
+              <th>Hash</th>
+              <th class="text-right" translate>Value Out</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr data-ng-show="!txs.length"><td colspan="3" translate>Waiting for transactions...</td></tr>
+          <tr class="fader" data-ng-repeat='tx in txs'>
+            <td>
+              <a class="ellipsis" href="tx/{{tx.txid}}">{{tx.txid}}</a>
+            </td>
+            <td class="text-right"><span class="ellipsis">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' MYNT'}}</span></td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-gray">
+        <h2><img src="../../img/Myntcoin_LOGO.png" class="brand-logo"></h2>
+        <p><strong class="ng-scope">TESTNET</strong>&nbsp;<span class="ng-scope" translate>Explorer is now available at</span>&nbsp;<a href="https://testnet.myntcoin.network" target="_blank" class="ng-scope" translate>https://testnet.myntcoin.network</a></p>
+        <p><strong class="ng-scope"translate>Myntore</strong>&nbsp;<span class="ng-scope" translate>is still in development, check out the source code</span>&nbsp;<a href="https://github.com/silence48/myntcore" target="_blank" class="ng-scope" translate>here</a><span class="ng-scope">.</span></p>
+        <p><strong class="ng-scope" translate>Donations</strong>&nbsp;<span class="ng-scope" translate>are very much appreciated: RD7yadeCvSDs4fCbEPuHstU3GHbiS7ao9q</span></p>
+        <!--<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script>
+        <div class="coinmarketcap-currency-widget" data-currencyid="2577" data-base="USD" data-secondary="BTC" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-stats="USD" data-statsticker="true"></div>-->
+        <div id="powered" class="row">
+          <div class="powered-text">
+            <small class="text-muted" translate>Myntoin Community</small>
+          </div>
+          <a href="https://bitcointalk.org/index.php?topic=3238497.0" target="_blank" class="btctalk" title="BitcoinTalk.org ANN"></a>
+          <a href="https://github.com/Myntroject/MMyntin" target="_blank" class="myntcoin" title="MyMyntn Github"></a>
+          <a href="https://twitter.com/myntcoin" target="_blank" class="twitter" title="Myntoin Twitter"></a>
+          <a href="https://discord.gg/E3jFwwd" target="_blank" class="discord" title="Discord"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
