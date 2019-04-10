@@ -1,12 +1,12 @@
 {
   "name": "insight-ui-mynt",
   "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the myntcoin network and build your own services with it.",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "repository": "git://github.com/silence48/insight-ui-mynt.git",
   "contributors": [
     {
       "name": "Silence48",
-      "email": ""
+      "email": "silence@rpgcoin.gg"
     }
   ],
   "scripts": {
@@ -25,7 +25,7 @@
     "myntcore",
     "front-end"
   ],
-  "myntcoreNode": "myntcore-node",
+  "myntcoreNode": "^1.0.0",
   "dependencies": {},
   "devDependencies": {
     "bower": "1.8.2",
